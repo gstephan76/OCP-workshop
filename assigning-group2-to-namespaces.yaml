@@ -5,7 +5,7 @@ metadata:
   namespace: grp2-common
 rules:
 - apiGroups: [""]
-  resources: [" pods serviceaccounts namespaces routes templates roles secrets services configs routes buildconfigs daemonsets deployments replicasets statefulsets builds imagestreams "]
+  resources: [" pods pods/attach pods/exec pods/portforward pods/proxy groupsyncs.redhatcop.redhat.io erviceaccounts projects projects.project.openshift.io namespaces namespaces/status services roles clusterroles clusterroles.rbac.authorization.k8s.io clusterroles.authorization.openshift.io users users.user.openshift.io projects.project.openshift.io routes templates roles secrets services configs routes buildconfigs daemonsets deployments replicasets statefulsets builds imagestreams endpoints "]
   verbs: ["*"]
 - apiGroups: ["extensions"]
   resources: ["*"]
