@@ -1,0 +1,14 @@
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: user-readonly
+  namespace: ns1
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: user-master
+subjects:
+  - kind: ServiceAccount
+    name: sa
+    namespace: default

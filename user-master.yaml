@@ -1,0 +1,16 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: user-master
+rules:
+- apiGroups:
+    - batch
+  resources:
+    - pods
+  verbs:
+    - get
+    - list
+    - watch
+
+
