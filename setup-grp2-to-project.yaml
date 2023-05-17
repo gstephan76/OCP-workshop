@@ -28,6 +28,100 @@ rules:
     - watch
     - create
   - apiGroups:
+    - "apps"
+    resources:
+    - configmaps
+    - pods
+    - secrets
+    - endpoints
+    - deployments
+    - deploymentconfigs
+    - replicasets
+    - replicationcontrollers
+    - persistentvolumeclaims
+    verbs:
+    - get
+    - list
+    - watch
+    - create
+  - apiGroups:
+    - "image.openshift.io"
+    resources:
+    - imagestreams
+    verbs:
+    - get
+    - list
+    - create
+  - apiGroups:
+    - "build.openshift.io"
+    resources:
+    - builds
+    - buildconfigs
+    verbs:
+    - get
+    - list
+    - create
+  - apiGroups:
+    - "tekton.dev"
+    resources:
+    - tasks
+    - pipelines
+    - pipelineruns
+    - taskruns
+    - pipelineresources
+    verbs:
+    - get
+    - watch
+    - list
+    - create
+    - delete
+  - apiGroups:
+    - "pipelinesascode.tekton.dev"
+    resources:
+    - repositories
+    verbs:
+    - get
+    - watch
+    - list
+    - create
+  - apiGroups:
+    - "triggers.tekton.dev"
+    resources:
+    - eventlisteners
+    - triggertemplates
+    - triggerbindings
+    verbs:
+    - get
+    - watch
+    - list
+    - create
+  - apiGroups:
+    - project.openshift.io
+    resources:
+    - projects
+    verbs:
+    - get
+    - list
+    - watch
+  - apiGroups:
+    - "apps.openshift.io" 
+    resources:
+    - deploymentconfigs
+    verbs:
+    - get
+    - list
+    - watch
+    - create
+  - apiGroups:
+    - "route.openshift.io"
+    resources:
+    - routes
+    verbs:
+    - get
+    - list
+    - watch
+    - create
+  - apiGroups:
     - ""
     resources:
     - services
@@ -40,6 +134,7 @@ rules:
     - networking.k8s.io
     resources:
     - ingresses
+    - networkpolicies
     verbs:
     - get
     - list
@@ -77,11 +172,20 @@ rules:
   - apiGroups:
     - ""
     resources:
-    - events
+    - event
     verbs:
     - create
     - patch
-  
+  - apiGroups:
+    - "events.k8s.io"
+    resources:
+    - event
+    verbs:
+    - create
+    - list
+    - watch
+    - get
+    - patch
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
