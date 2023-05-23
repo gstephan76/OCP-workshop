@@ -8,8 +8,11 @@ rules:
     - ""
     resources:
     - namespaces
+    - projects
+    - resourcequotas
     verbs:
     - get
+    - list
   - apiGroups:
     - ""
     resources:
